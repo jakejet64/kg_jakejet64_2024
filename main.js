@@ -1,12 +1,8 @@
-let arr1 = [3, 25, 209]
-let arr2 = [10, 300, 5]
-
 start();
 
 function start(){
-    console.log(IntArrToPhoneticArr(arr1));
-    console.log(IntArrToPhoneticArr(arr2));
-
+    const args = process.argv.slice(2);
+    console.log(IntArrToPhoneticArr(args));
 }
 
 function IntArrToPhoneticArr(input){
@@ -18,12 +14,13 @@ function IntArrToPhoneticArr(input){
 }
 
 function IntToPhonetic(input){
-    if(input > 9){
-        return IntToPhonetic(parseInt(input / 10)) +
-            IntToPhoneticHelper(input % 10);
-    }else{
-        return IntToPhoneticHelper(input);
+    let ret = '';
+    while(input > 9){
+        ret = IntToPhoneticHelper(input % 10) + ret;
+        input = parseInt(input / 10);
     }
+    ret = IntToPhoneticHelper(input) + ret;
+    return ret;
 }
 
 function IntToPhoneticHelper(input){
