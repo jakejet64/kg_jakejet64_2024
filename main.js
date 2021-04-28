@@ -1,8 +1,12 @@
+let arr1 = [3, 25, 209]
+let arr2 = [10, 300, 5]
+
 start();
 
 function start(){
-    const args = process.argv.slice(2);
-    console.log(IntArrToPhoneticArr(args));
+    console.log(IntArrToPhoneticArr(arr1));
+    console.log(IntArrToPhoneticArr(arr2));
+
 }
 
 function IntArrToPhoneticArr(input){
